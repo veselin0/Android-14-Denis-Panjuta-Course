@@ -2,10 +2,10 @@ package com.example.kotlinbasics
 
 fun main() {
 
-    var myAge: Byte = 35
+    var myAge: UShort = 35u
     println(myAge)
 
-    myAge = 36
+    myAge = 36u
     println(myAge)
 
     val pi = 3.14f
