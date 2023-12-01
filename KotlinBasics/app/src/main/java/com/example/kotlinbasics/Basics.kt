@@ -17,4 +17,13 @@ fun main() {
     println(myTrue || myFalse)
     println(myTrue && myFalse)
     println(!myTrue)
+
+    val myChar = 'a'
+    println(myChar)
+
+    val yourChar = '\u00AE'
+    println(yourChar)
+
+    val backSlash = '\\'
+    println(backSlash)
 }
