@@ -26,4 +26,16 @@ fun main() {
 
     val backSlash = '\\'
     println(backSlash)
+
+    var name = "Gocho"
+    name = "Kochev"
+    println(name)
+    println(name.uppercase())
+    println(name.lowercase())
+
+    val firstName = "Bocho"
+    val lastName = "Dochev"
+    println(firstName + " " + lastName)
+    println("$firstName $lastName")
+    println("${firstName.uppercase()} ${lastName.lowercase()}")
 }
