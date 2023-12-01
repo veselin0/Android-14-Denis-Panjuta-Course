@@ -39,11 +39,16 @@ fun main() {
     println("$firstName $lastName")
     println("${firstName.uppercase()} ${lastName.lowercase()}")
 
-    var age = 63
-
-    if (age >= 18) {
-        println("You can go to the pub")
-    } else {
-        println("You can't go to the pub")
+    var age = 0
+    println("Please, enter your age: ")
+    val inputData = readln()
+    if (inputData.isNotEmpty()) {
+        age = inputData.toInt()
+        if (age >= 18) {
+            println("You can go to the pub")
+        } else {
+            println("You can't go to the pub")
+        }
     }
+
 }
