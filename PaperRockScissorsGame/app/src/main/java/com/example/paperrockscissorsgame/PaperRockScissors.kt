@@ -33,4 +33,9 @@ fun main() {
         else -> "Computer"
     }
 
+    when(winner) {
+        "Tie" -> println("It's a tie!")
+        else -> println("$winner wins!")
+    }
+
 }
