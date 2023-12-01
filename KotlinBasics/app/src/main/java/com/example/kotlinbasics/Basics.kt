@@ -38,4 +38,12 @@ fun main() {
     println(firstName + " " + lastName)
     println("$firstName $lastName")
     println("${firstName.uppercase()} ${lastName.lowercase()}")
+
+    var age = 63
+
+    if (age >= 18) {
+        println("You can go to the pub")
+    } else {
+        println("You can't go to the pub")
+    }
 }
