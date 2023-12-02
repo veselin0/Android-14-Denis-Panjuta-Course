@@ -4,8 +4,18 @@ package com.example.paperrockscissorsgame
 fun main() {
     var computerChoice = ""
     var userChoice = ""
-    println("Paper, Scissors or Rock? Enter your Choice:")
-    userChoice = readln().lowercase()
+    var input: String
+
+    while (userChoice == "") {
+        println("Paper, Scissors or Rock? Enter your Choice:")
+        input = readln().lowercase()
+
+        if (input !in listOf("paper", "scissors", "rock")) {
+            println("Invalid choice. Please choose between paper, scissors, or rock.")
+        } else {
+            userChoice = input
+        }
+    }
 
     val randomNumber = (1..3).random()
     when (randomNumber) {
@@ -37,5 +47,7 @@ fun main() {
         "Tie" -> println("It's a tie!")
         else -> println("$winner wins!")
     }
+
+
 
 }
