@@ -2,7 +2,9 @@ package com.example.kotlinbasics
 
 fun main() {
 
-    var daisy = Dog()
+    var daisy = Dog("Daisy", "boxer", 1)
+
+    println("${daisy.name} is a ${daisy.breed} and is ${daisy.age} years old.")
 
 }
 
