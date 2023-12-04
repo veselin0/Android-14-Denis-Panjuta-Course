@@ -1,12 +1,9 @@
 package com.example.kotlinbasics
 
 fun main() {
-    println("Please enter a number:")
-    val dou1 = readln().toDouble()
-    println("Please, enter another number:")
-    val dou2 = readln().toDouble()
-    val result = divide(dou1, dou2)
-    println("The result is: $result")
+
+    var daisy = Dog()
+
 }
 
 fun divide(dou1: Double, dou2: Double): Double {
