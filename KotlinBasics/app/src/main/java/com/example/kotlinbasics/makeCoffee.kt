@@ -2,22 +2,14 @@ package com.example.kotlinbasics
 
 fun main() {
 
-    var daisy = Dog("Daisy", "boxer", 1)
+    val coffeeeForGocho = CoffeeDetails(2, "Gocho", "Long", 3)
 
-    println("${daisy.name} is a ${daisy.breed} and is ${daisy.age} years old.")
-
-    println("A year has passed.")
-
-    daisy.age = 2
-    println("${daisy.name} is a ${daisy.breed} and is ${daisy.age} years old.")
-
-    println("And Daisy is now Crazy.")
-    daisy.name = "Crazy"
+    makeCoffee(coffeeeForGocho)
 
 }
 
 fun divide(dou1: Double, dou2: Double): Double {
-        return dou1 / dou2
+    return dou1 / dou2
 }
 
 fun add(): Int {
@@ -36,13 +28,13 @@ fun coffeeDetails() {
     val sugarCount = readln().toInt()
 }
 
-fun makeCoffee(name: String, sugarCount: Int) {
+fun makeCoffee(coffeeDetails: CoffeeDetails) {
 //    if (sugarCount == 1) println("coffee with $sugarCount spoon of sugar for ")
 //    else if (sugarCount == 0) println("Coffee with no sugar for $name")
 //    else println("coffee with $sugarCount spoons of sugar for $name")
-    when (sugarCount) {
-        0 -> println("Coffee with no sugar for $name.")
-        1 -> println("Coffee with $sugarCount spoon of sugar for $name.")
-        else -> println("Coffee with $sugarCount spoons of sugar for $name.")
+    when (coffeeDetails.sugarCount) {
+        0 -> println("Coffee with no sugar for ${coffeeDetails.name}.")
+        1 -> println("Coffee with ${coffeeDetails.sugarCount} spoon of sugar for ${coffeeDetails.name}.")
+        else -> println("${coffeeDetails.size} coffee with ${coffeeDetails.sugarCount} spoons of sugar and ${coffeeDetails.creamAmount} spoons of cream for ${coffeeDetails.name}.")
     }
 }
