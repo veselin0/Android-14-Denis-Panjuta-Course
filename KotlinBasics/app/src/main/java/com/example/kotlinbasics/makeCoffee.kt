@@ -1,13 +1,11 @@
 package com.example.kotlinbasics
 
 fun main() {
-    makeCoffee()
-    makeCoffee()
-    makeCoffee()
+    makeCoffee(1)
+    makeCoffee(2)
+    makeCoffee(30)
 }
 
-fun makeCoffee() {
-    println("grind coffee beans")
-    println("boil water")
-    println("put the ground coffee beans into the water ")
+fun makeCoffee(sugarCount: Int, ) {
+ println("coffee with $sugarCount spoons of sugar")
 }
