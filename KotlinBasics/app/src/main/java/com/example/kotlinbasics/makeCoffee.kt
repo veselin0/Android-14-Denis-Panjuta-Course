@@ -1,10 +1,15 @@
 package com.example.kotlinbasics
 
 fun main() {
-    println(add(1, 2))
+    println("The result is: ${add()}")
 }
 
-fun add(int1: Int, int2: Int): Int {
+fun add(): Int {
+    println("Please enter an integer:")
+    var int1 = readln().toInt()
+    println("Please, enter another integer:")
+    var int2 = readln().toInt()
+
     return int1 + int2
 }
 
