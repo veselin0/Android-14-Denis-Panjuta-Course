@@ -1,9 +1,11 @@
 package com.example.kotlinbasics
 
 fun main() {
-    makeCoffee("Gocho", 0)
-    makeCoffee("Bocho", 1)
-    makeCoffee("Docho", 36)
+    println("Who is this coffee for?")
+    val name = readln()
+    println("How much sugar doe's the subject want?")
+    val sugarCount = readln().toInt()
+    makeCoffee(name, sugarCount)
 }
 
 fun makeCoffee(name: String, sugarCount: Int) {
