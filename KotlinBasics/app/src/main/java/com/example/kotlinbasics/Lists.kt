@@ -8,7 +8,13 @@ fun main() {
     shoppingList.removeAt(2)
     shoppingList.removeAt(1)
     shoppingList.add(2, "RAM")
-//    shoppingList.add("Graphics Card RTX 4090")
+    shoppingList.add("Graphics Card RTX 4090")
+    shoppingList[4] = "Graphics Card RX 7800XT"
+
+
 
     println(shoppingList)
+    println(shoppingList[2])
+    println(shoppingList[4])
+
 }
