@@ -3,6 +3,10 @@ package com.example.bankaccountprog
 class BankAccount(var holderName: String, var balance: Double) {
     private val transactionsHistory = mutableListOf<String>()
 
+    fun currentBalance(): Double {
+        return balance
+    }
+
     fun deposit(amount: Double) {
         balance += amount
         transactionsHistory.add("$holderName deposited $$amount")
