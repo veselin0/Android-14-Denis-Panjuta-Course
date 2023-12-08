@@ -47,8 +47,8 @@ fun UnitConverter() {
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun UnitConverterPreview() {
     UnitConverterTheme {
-
+        UnitConverter()
     }
 }
