@@ -76,12 +76,12 @@ fun UnitConverter() {
                 Button(onClick = { /*TODO*/ }) {
                     Text(text = "Select")
                     Icon(Icons.Default.ArrowDropDown, contentDescription = "Arrow Down")
-                    DropdownMenu(expanded = true, onDismissRequest = { /*TODO*/ }) {
-                        DropdownMenuItem(text = { Text(text = "Meters") }, onClick = { /*TODO*/ })
-                        DropdownMenuItem(text = { Text(text = "Centimeters") }, onClick = { /*TODO*/ })
-                        DropdownMenuItem(text = { Text(text = "Millimeters") }, onClick = { /*TODO*/ })
-                        DropdownMenuItem(text = { Text(text = "Inches") }, onClick = { /*TODO*/ })
-                    }
+                }
+                DropdownMenu(expanded = true, onDismissRequest = { /*TODO*/ }) {
+                    DropdownMenuItem(text = { Text(text = "Meters") }, onClick = { /*TODO*/ })
+                    DropdownMenuItem(text = { Text(text = "Centimeters") }, onClick = { /*TODO*/ })
+                    DropdownMenuItem(text = { Text(text = "Millimeters") }, onClick = { /*TODO*/ })
+                    DropdownMenuItem(text = { Text(text = "Inches") }, onClick = { /*TODO*/ })
                 }
             }
         }
