@@ -36,33 +36,56 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun CaptainGame() {
-    val treasuresCount = remember { mutableStateOf(0) }
+    val treasuresFound = remember { mutableStateOf(0) }
     val direction = remember { mutableStateOf("North") }
+    val stormOrTreasure = remember { mutableStateOf("") }
 
     Column {
-        Text(text = "Treasures found: ${treasuresCount.value}")
+        Text(text = "Treasures found: ${treasuresFound.value}")
         Text(text = "Current direction: ${direction.value}")
+        Text(text = stormOrTreasure.value)
+
         Button(onClick = {
             direction.value = "East"
-            if (Random.nextBoolean()) treasuresCount.value++
+            if (Random.nextBoolean()) {
+                treasuresFound.value += 1
+                stormOrTreasure.value = "Found a Treasure!"
+            } else {
+                stormOrTreasure.value = "Storm Ahead!"
+            }
         }) {
             Text(text = "Sail East")
         }
         Button(onClick = {
             direction.value = "West"
-            if (Random.nextBoolean()) treasuresCount.value++
+            if (Random.nextBoolean()) {
+                treasuresFound.value += 1
+                stormOrTreasure.value = "Found a Treasure!"
+            } else {
+                stormOrTreasure.value = "Storm Ahead!"
+            }
         }) {
             Text(text = "Sail West")
         }
         Button(onClick = {
             direction.value = "North"
-            if (Random.nextBoolean()) treasuresCount.value++
+            if (Random.nextBoolean()) {
+                treasuresFound.value += 1
+                stormOrTreasure.value = "Found a Treasure!"
+            } else {
+                stormOrTreasure.value = "Storm Ahead!"
+            }
         }) {
             Text(text = "Sail North")
         }
         Button(onClick = {
             direction.value = "South"
-            if (Random.nextBoolean()) treasuresCount.value++
+            if (Random.nextBoolean()) {
+                treasuresFound.value += 1
+                stormOrTreasure.value = "Found a Treasure!"
+            } else {
+                stormOrTreasure.value = "Storm Ahead!"
+            }
         }) {
             Text(text = "Sail South")
         }
