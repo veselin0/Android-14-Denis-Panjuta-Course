@@ -73,25 +73,40 @@ fun UnitConverter() {
             onValueChange = { inputValue = it })
         Spacer(modifier = Modifier.height(16.dp))
         Row {
+//            Input Box
             Box {
-                Button(onClick = { /*TODO*/ }) {
+//            Input Button
+                Button(onClick = { isInputExpanded = true }) {
                     Text(text = "Select")
                     Icon(Icons.Default.ArrowDropDown, contentDescription = "Arrow Down")
                 }
-                DropdownMenu(expanded = false, onDismissRequest = { /*TODO*/ }) {
+                DropdownMenu(
+                    expanded = isInputExpanded,
+                    onDismissRequest = { isInputExpanded = false }) {
                     DropdownMenuItem(text = { Text(text = "Meters") }, onClick = { /*TODO*/ })
-                    DropdownMenuItem(text = { Text(text = "Centimeters") }, onClick = { /*TODO*/ })
+                    DropdownMenuItem(
+                        text = { Text(text = "Centimeters") },
+                        onClick = {
+                            isInputExpanded = false
+                            inputUnit = "Centimeters"
+                            conversionFactor.value = 0.01
+                        })
                     DropdownMenuItem(text = { Text(text = "Millimeters") }, onClick = { /*TODO*/ })
                     DropdownMenuItem(text = { Text(text = "Inches") }, onClick = { /*TODO*/ })
                 }
             }
             Spacer(modifier = Modifier.width(16.dp))
+
+//                Output Box
             Box {
-                Button(onClick = { /*TODO*/ }) {
+//                Output Button
+                Button(onClick = { isOutputExpanded = true }) {
                     Text(text = "Select")
                     Icon(Icons.Default.ArrowDropDown, contentDescription = "Arrow Down")
                 }
-                DropdownMenu(expanded = false, onDismissRequest = { /*TODO*/ }) {
+                DropdownMenu(
+                    expanded = isOutputExpanded,
+                    onDismissRequest = { isOutputExpanded = false }) {
                     DropdownMenuItem(text = { Text(text = "Meters") }, onClick = { /*TODO*/ })
                     DropdownMenuItem(text = { Text(text = "Centimeters") }, onClick = { /*TODO*/ })
                     DropdownMenuItem(text = { Text(text = "Millimeters") }, onClick = { /*TODO*/ })
