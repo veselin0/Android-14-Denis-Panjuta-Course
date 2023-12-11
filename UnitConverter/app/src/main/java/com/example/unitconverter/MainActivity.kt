@@ -30,7 +30,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.unitconverter.ui.theme.UnitConverterTheme
+import java.text.DecimalFormat
+import kotlin.math.abs
 import kotlin.math.ceil
+import kotlin.math.floor
+import kotlin.math.round
 import kotlin.math.roundToInt
 
 class MainActivity : ComponentActivity() {
@@ -65,9 +69,10 @@ fun UnitConverter() {
 
 //        ?: - elvis operator
         val inputValueDouble = inputValue.toDoubleOrNull() ?: 0.0
-        val result = (((inputValueDouble * inputConversionFactor.doubleValue * 100.0) / outputConversionFactor.doubleValue)).roundToInt() / 100.0
-        outputValue = result.toString()
-
+        val result = (inputValueDouble * inputConversionFactor.doubleValue * 100.0) / outputConversionFactor.doubleValue
+        val roundedValue = abs(result) / 100.0
+        val formattedNum = String.format("%.3f", roundedValue)
+        outputValue = formattedNum
     }
 
     Column(
