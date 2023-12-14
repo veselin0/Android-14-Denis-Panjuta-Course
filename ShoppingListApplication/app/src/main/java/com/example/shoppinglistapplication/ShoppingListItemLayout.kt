@@ -28,5 +28,6 @@ fun ShoppingListItemLayout(
             )
     ) {
         Text(text = item.name, modifier = Modifier.padding(8.dp))
+        Text(text =  item.quantity.toString(), modifier = Modifier.padding(8.dp))
     }
 }
