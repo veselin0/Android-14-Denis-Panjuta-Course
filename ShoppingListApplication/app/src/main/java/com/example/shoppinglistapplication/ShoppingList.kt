@@ -49,94 +49,91 @@ fun ShoppingList() {
                 .fillMaxSize()
                 .padding(16.dp)
         ) {
-            items(shoppingItems) {
-                ShoppingListItemLayout(it, {}, {})
+            items(shoppingItems) { item ->
+                if (item.isBeingEdited) ShoppingListEditor(
+                    item = item
+                ) { editedName, editedQuantity ->
+                    shoppingItems = shoppingItems.map { it.copy(isBeingEdited = false) }
+                    val editedItem = shoppingItems.find { it.id == item.id }
+                    editedItem?.let {
+                        it.name = editedName
+                        it.quantity = editedQuantity
+                    }
+                }
+                else ShoppingListItemLayout(item = item, onEditClick = {
+                    shoppingItems = shoppingItems.map { it.copy(isBeingEdited = it.id == item.id) }
+                }, onDeleteClick = {
+                    shoppingItems -= item
+                })
             }
         }
-    }
 
-    if (showDialog) {
-        AlertDialog(
-            onDismissRequest = {
-                showDialog = false
-                itemName = ""
-                itemQuantity = ""
-            },
-            confirmButton = {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(8.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    Button(onClick = {
 
-                        if (itemName.isNotBlank()) {
-                            val newItem = ShoppingListItem(
-                                id = shoppingItems.size + 1,
-                                name = itemName,
-                                quantity = itemQuantity.toInt(),
-                                isBeingEdited = true
-                            )
-                            shoppingItems += newItem
+        if (showDialog) {
+            AlertDialog(
+                onDismissRequest = {
+                    showDialog = false
+                    itemName = ""
+                    itemQuantity = ""
+                },
+                confirmButton = {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(8.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Button(onClick = {
+
+                            if (itemName.isNotBlank()) {
+                                val newItem = ShoppingListItem(
+                                    id = shoppingItems.size + 1,
+                                    name = itemName,
+                                    quantity = itemQuantity.toInt(),
+                                    isBeingEdited = false
+                                )
+                                shoppingItems += newItem
+                                showDialog = false
+                                itemName = ""
+                                itemQuantity = ""
+                            }
+
+                        }) {
+                            Text(text = "Add")
+                        }
+                        Button(onClick = {
                             showDialog = false
                             itemName = ""
                             itemQuantity = ""
+                        }) {
+                            Text(text = "Cancel")
                         }
+                    }
+                },
+                title = { Text(text = "Add Shopping Item") },
+                text = {
+                    Column {
+                        OutlinedTextField(
+                            value = itemName,
+                            onValueChange = { itemName = it },
+                            singleLine = true,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(8.dp)
+                        )
+                        OutlinedTextField(
+                            value = itemQuantity,
+                            onValueChange = { itemQuantity = it },
+                            singleLine = true,
+                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(8.dp)
+                        )
+                    }
+                })
+        }
 
-                    }) {
-                        Text(text = "Add")
-                    }
-                    Button(onClick = {
-                        showDialog = false
-                        itemName = ""
-                        itemQuantity = ""
-                    }) {
-                        Text(text = "Cancel")
-                    }
-                }
-            },
-            title = { Text(text = "Add Shopping Item") },
-            text = {
-                Column {
-                    OutlinedTextField(
-                        value = itemName,
-                        onValueChange = { itemName = it },
-                        singleLine = true,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(8.dp)
-                    )
-                    OutlinedTextField(
-                        value = itemQuantity,
-                        onValueChange = { itemQuantity = it },
-                        singleLine = true,
-                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(8.dp)
-                    )
-                }
-            })
     }
-
 }
 
-//@Composable
-//fun ShoppingListItemLayout(
-//    item: ShoppingListItem,
-//    onEditClick: () -> Unit,
-//    onDeleteClick: () -> Unit,
-//) {
-//    Row(
-//        modifier = Modifier
-//            .fillMaxWidth()
-//            .padding(8.dp)
-//            .border(
-//                border = BorderStroke(width = 2.dp, Color(0XFF018786)),
-//                shape = RoundedCornerShape(20)
-//            )
-//    ) {
-//        Text(text = item.name, modifier = Modifier.padding(8.dp))
-//    }
-//}
