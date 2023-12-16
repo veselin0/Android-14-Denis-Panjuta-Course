@@ -1,4 +1,4 @@
-package com.example.counterviewmodel
+package com.example.counterviewmodel.counter
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun CounterScreen(viewModel: CounterViewModel) {
+fun CounterScreen(counterViewModel: CounterViewModel) {
 
 
     Column(
@@ -25,18 +25,18 @@ fun CounterScreen(viewModel: CounterViewModel) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text("Current Count: ${viewModel.count.intValue}", fontSize = 24.sp, fontWeight = FontWeight.Bold)
+        Text("Current Count: ${counterViewModel.count.intValue}", fontSize = 24.sp, fontWeight = FontWeight.Bold)
 
         Spacer(modifier = Modifier.height(20.dp))
 
         Row {
-            Button(onClick = { viewModel.increment() }) {
+            Button(onClick = { counterViewModel.increment() }) {
                 Text("Increment")
             }
 
             Spacer(modifier = Modifier.width(20.dp))
 
-            Button(onClick = { viewModel.decrement() }) {
+            Button(onClick = { counterViewModel.decrement() }) {
                 Text("Decrement")
             }
         }

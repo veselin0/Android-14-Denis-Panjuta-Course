@@ -8,6 +8,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.counterviewmodel.counter.CounterScreen
+import com.example.counterviewmodel.counter.CounterViewModel
 import com.example.counterviewmodel.ui.theme.CounterViewModelTheme
 
 class MainActivity : ComponentActivity() {
