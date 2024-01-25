@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun FirstScreen() {
+fun FirstScreen(navigationToSecondScreen: () -> Unit) {
     val name = remember { mutableStateOf("") }
 
     Column(
@@ -28,7 +28,7 @@ fun FirstScreen() {
     ) {
         Text(text = "This is the first screen", fontSize = 24.sp)
         OutlinedTextField(value = name.value, onValueChange = { name.value = it })
-        Button(onClick = { /*TODO*/ }) {
+        Button(onClick = { navigationToSecondScreen() }) {
             Text(text = "Go to Second Screen")
         }
     }
