@@ -32,28 +32,10 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    FirstScreen()
+                    SecondScreen()
                 }
             }
         }
     }
 }
 
-@Composable
-fun FirstScreen() {
-    val name = remember { mutableStateOf("") }
-
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Text(text = "This is the first screen", fontSize = 24.sp)
-        OutlinedTextField(value = name.value, onValueChange = { name.value = it })
-        Button(onClick = { /*TODO*/ }) {
-            Text(text = "Go to Next Screen")
-        }
-    }
-}
