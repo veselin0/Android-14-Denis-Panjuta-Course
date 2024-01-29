@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -16,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun FirstScreen(navigateToSecondScreen: () -> Unit) {
+fun ThirdScreen(navigateToFirstScreen: () -> Unit) {
     val name = remember { mutableStateOf("") }
 
     Column(
@@ -26,10 +25,10 @@ fun FirstScreen(navigateToSecondScreen: () -> Unit) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(text = "This is the first screen", fontSize = 24.sp)
-        OutlinedTextField(value = name.value, onValueChange = { name.value = it })
-        Button(onClick = { navigateToSecondScreen() }) {
-            Text(text = "Go to Second Screen")
+        Text(text = "This is the third screen", fontSize = 24.sp)
+        Text(text = "Welcome", fontSize = 24.sp)
+        Button(onClick = { navigateToFirstScreen() }) {
+            Text(text = "Go to First Screen")
         }
     }
 }
