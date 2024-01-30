@@ -15,8 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun ThirdScreen(navigateToFirstScreen: () -> Unit) {
-    val name = remember { mutableStateOf("") }
+fun ThirdScreen(name: String, navigateToFirstScreen: () -> Unit) {
 
     Column(
         modifier = Modifier
@@ -26,7 +25,7 @@ fun ThirdScreen(navigateToFirstScreen: () -> Unit) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(text = "This is the third screen", fontSize = 24.sp)
-        Text(text = "Welcome", fontSize = 24.sp)
+        Text(text = "Welcome, $name!", fontSize = 24.sp)
         Button(onClick = { navigateToFirstScreen() }) {
             Text(text = "Go to First Screen")
         }
