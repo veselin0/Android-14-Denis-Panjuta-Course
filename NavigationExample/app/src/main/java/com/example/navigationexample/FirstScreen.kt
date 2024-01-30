@@ -18,6 +18,8 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun FirstScreen(navigateToSecondScreen: (String) -> Unit) {
     val name = remember { mutableStateOf("") }
+    val age = remember { mutableStateOf("") }
+
 
     Column(
         modifier = Modifier
@@ -27,7 +29,14 @@ fun FirstScreen(navigateToSecondScreen: (String) -> Unit) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(text = "This is the first screen", fontSize = 24.sp)
-        OutlinedTextField(value = name.value, onValueChange = { name.value = it })
+        OutlinedTextField(
+            value = name.value,
+            onValueChange = { name.value = it },
+            label = { Text(text = "name") })
+        OutlinedTextField(
+            value = age.value,
+            onValueChange = { age.value = it },
+            label = { Text(text = "age") })
         Button(onClick = { navigateToSecondScreen(name.value) }) {
             Text(text = "Go to Second Screen")
         }

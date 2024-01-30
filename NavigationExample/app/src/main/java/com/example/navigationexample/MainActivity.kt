@@ -42,7 +42,8 @@ fun MyAppNavigation() {
         }
         composable("secondscreen/{name}") {
             val name = it.arguments?.getString("name") ?: "no name"
-            SecondScreen(name) {
+            val age = it.arguments?.getString("age") ?: "no name"
+            SecondScreen(name, age.toInt() ) {
                 navController.navigate("thirdscreen/$name")
             }
         }
