@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun SecondScreen(name: String, age: Int, navigateToThirdScreen: () -> Unit ): Unit {
+fun SecondScreen(name: String, age: String, navigateToThirdScreen: () -> Unit ): Unit {
 
     Column(
         modifier = Modifier
